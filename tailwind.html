@@ -1,32 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
-
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
-  <title>Tailwind | Stats preview card component</title>
-
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Insights Card – Tailwind</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Lexend+Deca:wght@400&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans:  ['Inter', 'sans-serif'],
+            deca:  ['Lexend Deca', 'sans-serif'],
+          },
+          colors: {
+            /* colores exactos del style guide */
+            'bg-page':   'hsl(233, 47%, 7%)',
+            'bg-card':   'hsl(244, 38%, 16%)',
+            'accent':    'hsl(277, 64%, 61%)',
+          }
+        }
+      }
+    }
+  </script>
   <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
+    /* overlay violeta sobre imagen */
+    .img-overlay { position: relative; }
+    .img-overlay::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: hsl(277, 64%, 61%);
+      opacity: 0.5;
+      mix-blend-mode: multiply;
+    }
   </style>
 </head>
-<body>
+<body class="font-sans text-[15px] bg-bg-page min-h-screen flex items-center justify-center p-6 md:p-16">
 
-  Get insights that help your business grow.
+  <!-- Card principal -->
+  <div class="bg-bg-card rounded-xl overflow-hidden w-full max-w-5xl flex flex-col-reverse md:flex-row">
 
-  Discover the benefits of data analytics and make better decisions regarding revenue, customer 
-  experience, and overall efficiency.
+    <!-- Texto (izquierda en desktop, abajo en mobile) -->
+    <div class="flex-1 flex flex-col justify-center
+                px-8 py-10 md:px-16 md:py-16
+                text-center md:text-left
+                items-center md:items-start">
 
-  10k+ companies
-  314 templates
-  12m+ queries
+      <h1 class="font-bold text-white text-2xl md:text-[2rem] leading-tight mb-6">
+        Get <span class="text-accent">insights</span> that help
+        your business grow.
+      </h1>
 
-  <div class="attribution">
-    Coded by <a href="#">Your Name Here</a>.
+      <p class="text-white/75 leading-relaxed mb-10 max-w-sm">
+        Discover the benefits of data analytics and make better
+        decisions regarding revenue, customer experience, and
+        overall efficiency.
+      </p>
+
+      <!-- Stats -->
+      <div class="flex flex-col md:flex-row gap-6 md:gap-10 items-center md:items-start">
+
+        <div>
+          <p class="font-bold text-white text-2xl">10k+</p>
+          <p class="font-deca text-white/60 text-xs uppercase tracking-widest mt-1">Companies</p>
+        </div>
+
+        <div>
+          <p class="font-bold text-white text-2xl">314</p>
+          <p class="font-deca text-white/60 text-xs uppercase tracking-widest mt-1">Templates</p>
+        </div>
+
+        <div>
+          <p class="font-bold text-white text-2xl">12M+</p>
+          <p class="font-deca text-white/60 text-xs uppercase tracking-widest mt-1">Queries</p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Imagen (derecha en desktop, arriba en mobile) -->
+    <div class="img-overlay flex-1 min-h-[240px] md:min-h-0">
+      <img
+        src="images/image-header-desktop.jpg"
+        alt="Team working on data analytics"
+        class="w-full h-full object-cover"
+        style="min-height: 240px;"
+      />
+    </div>
+
   </div>
+
 </body>
 </html>
