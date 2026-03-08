@@ -8,7 +8,7 @@ El usuario puede elegir el controlador de versiones que desee, ya sea Bootstrap 
 
 ### Screenshot
 
-images/imagen_final_despliegue.png
+![Screenshot](images/imagen_final_despliegue.png)
 
 ### Links
 
